@@ -28,7 +28,7 @@
             <span class="checkmark"></span>
           </label>
           <span class="todo-text">{{todo.text}}</span>
-          <a class="todo-delete"></a>
+          <a class="todo-delete" @click="destroy(todo.id)"></a>
         </li>
       </ul>
     </div>

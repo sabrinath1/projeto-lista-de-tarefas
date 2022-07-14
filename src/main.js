@@ -32,6 +32,11 @@ const app = createApp({
       })
       const index = this.todos.findIndex(({ id }) => id == data.id)
       this.todos[index] = data
+    },
+    async destroy(id) {
+      await apiTodos.destroy({ id })
+      const index = this.todos.findIndex(todo => todo.id == id)
+      this.todos.splice(index, 1)
     }
   }
 })
