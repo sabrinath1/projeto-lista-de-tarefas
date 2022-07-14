@@ -12,7 +12,7 @@
         <input type="text" placeholder="Todo" v-model="form.text" />
 
         <label class="checkbox-input">
-          Não concluída
+          {{form.done == true ? 'Concluído' : "Não Concluído"}}
           <input type="checkbox" v-model="form.done" :checked="form.done" />
           <span class="checkmark"></span>
         </label>
@@ -23,7 +23,7 @@
       <ul class="todos">
         <span class="todos-title">Todos</span>
         <li :class="['todo', { done: todo.done}]" v-for="todo in todos">
-          <label class="checkbox-input">
+          <label class="checkbox-input" @click="toggleTodoStatus(todo)">
             <input type="checkbox" :checked="todo.done  " />
             <span class="checkmark"></span>
           </label>
